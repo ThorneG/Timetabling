@@ -133,7 +133,7 @@
                 @Html.ValidationMessageFor(model => model.booked, "", new { @class = "text-danger" })
             </div>
         </div>
-
+        <input type="hidden" name="user" value="@ViewBag.user" />
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
                 <input type="submit" value="Create" class="btn btn-default" />
@@ -143,5 +143,5 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index", new { user = ViewBag.user })
 </div>
