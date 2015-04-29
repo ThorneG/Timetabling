@@ -141,6 +141,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.requestID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Edit", "Edit", new { id = Model.requestID, ViewBag.user }) |
+    @Html.ActionLink("Back to List", "Index", new { user = ViewBag.user })
 </p>
