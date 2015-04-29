@@ -7,7 +7,7 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new { user = ViewBag.user })
 </p>
 <table class="table">
     <tr>
@@ -37,18 +37,6 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.requestLink)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.sent)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.status)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.viewed)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.booked)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.department.name)
@@ -92,18 +80,6 @@
             @Html.DisplayFor(modelItem => item.requestLink)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.sent)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.status)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.viewed)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.booked)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.department.name)
         </td>
         <td>
@@ -113,9 +89,9 @@
             @Html.DisplayFor(modelItem => item.round.roundID)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.requestID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.requestID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.requestID })
+            @Html.ActionLink("Edit", "Edit", new { id=item.requestID, ViewBag.user }) |
+            @Html.ActionLink("Details", "Details", new { id = item.requestID, ViewBag.user }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.requestID, ViewBag.user })
         </td>
     </tr>
 }
