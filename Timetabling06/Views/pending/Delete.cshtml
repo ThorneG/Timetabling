@@ -143,10 +143,10 @@
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
-
+    <input type="hidden" name="user" value="@ViewBag.user" />
         <div class="form-actions no-color">
             <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+            @Html.ActionLink("Back to List", "Index", new {user = ViewBag.user})
         </div>
     }
 </div>
