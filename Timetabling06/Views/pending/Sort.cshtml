@@ -1,0 +1,102 @@
+@model IEnumerable<Timetabling06.Models.request>
+@{
+    ViewBag.Title = "Pending Requests";
+}
+<h2>Pending Requests</h2>
+<p>
+    @Html.ActionLink("Create New", "Create", new { user = ViewBag.user })
+</p>
+@using (Html.BeginForm())
+{
+    <p>
+        Search: @Html.TextBox("searchString")
+        <input type="submit" value="Search" />
+        @Html.ActionLink("Reset", "Index", new { user = ViewBag.user })
+    </p>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink("Round ID", "Sort", new { user = ViewBag.user, pass = "status" })
+        </th>
+        <th>
+            @Html.ActionLink("Module Code", "Sort", new { user = ViewBag.user, pass = "part" })
+        </th>
+        <th>
+            @Html.ActionLink("Module Title", "Sort", new { user = ViewBag.user, pass = "module" })
+        </th>
+        <th>
+            @Html.ActionLink("Priority", "Sort", new { user = ViewBag.user, pass = "priority" })
+        </th>
+        <th>
+            @Html.ActionLink("Day", "Sort", new { user = ViewBag.user, pass = "day" })
+        </th>
+        <th>
+            @Html.ActionLink("Start Period", "Sort", new { user = ViewBag.user, pass = "start" })
+        </th>
+        <th>
+            @Html.ActionLink("Length (Hours)", "Sort", new { user = ViewBag.user, pass = "length" })
+        </th>
+        <th>
+            @Html.ActionLink("Weeks", "Sort", new { user = ViewBag.user, pass = "weeks" })
+        </th>
+        <th>
+            @Html.ActionLink("Type", "Sort", new { user = ViewBag.user, pass = "type" })
+        </th>
+        <th>
+            @Html.ActionLink("Date", "Sort", new { user = ViewBag.user, pass = "date" })
+        </th>
+        <th>
+            @Html.ActionLink("Other Requests", "Sort", new { user = ViewBag.user, pass = "other" })
+        </th>
+        <th>
+            @Html.ActionLink("Request Link", "Sort", new { user = ViewBag.user, pass = "link" })
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.round.roundID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.moduleCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.module.moduleTitle)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.priority)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.day)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.start)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.length)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.weeks)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.otherReqs)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.requestLink)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.requestID, ViewBag.user }) |
+                @Html.ActionLink("Details", "Details", new { id = item.requestID, ViewBag.user }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.requestID, ViewBag.user })
+            </td>
+        </tr>
+    }
+</table>
